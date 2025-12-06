@@ -178,12 +178,7 @@ The project utilizes a comprehensive **Pyramid Testing Strategy**, ensuring reli
 
 The following images document the successful execution of the project's comprehensive test suite using the `mvn test` command.
 
-### Unit & Integration Test Results
-*(Paste screenshot of JUnit test report or console output here)*
 ![Screenshot 1](./images/screenshot_1.jpeg)
-
-### UI Automation Test Results
-*(Paste screenshot of TestFX results or console output here)*
 ![Screenshot 2](./images/screenshot_2.jpeg)
 
 ---
