@@ -191,16 +191,25 @@ The following images document the successful execution of the project's comprehe
 * **G++ Compiler** (MinGW for Windows, GCC for Linux).
 
 **Windows (PowerShell/CMD):**
+
+### Step 1: Compile Native Library 
+
+The C++ backend must be compiled into a shared library (`.dll` or `.so`) before the Java application can run
+
 ```cmd
-### Step 1: Compile Native Library - The C++ backend must be compiled into a shared library (`.dll` or `.so`) before the Java application can run
 g++ -I"%JAVA_HOME%\include" -I"%JAVA_HOME%\include\win32" -shared -o ParticleSystem.dll src/c++/ParticleSystem.cpp
+```
 
 ### Step 2: Run Test Suite
 Execute the Maven test cycle to verify the build and physics engine integrity.
+
 ```cmd
 mvn test
+```
 
 ### Step 3: Launch Application
 Run the application using the Maven JavaFX plugin.
+
 ```cmd
 mvn javafx:run
+```
