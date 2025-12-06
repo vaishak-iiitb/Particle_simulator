@@ -1,5 +1,14 @@
 # Particle System Simulator
 
+> A high-performance, real-time application for modeling and visualizing complex particle dynamics using a hybrid Java (Frontend) + C++ (Backend) architecture.
+
+**Team:** MYTHilesh
+**Members:**
+*   IMT2023085 Vaishak Prasad Bhat 
+*   IMT2023104 Subhash Hari
+*   IMT2023507 Mithilesh
+*   IMT2023032 Dhruv Ramesh Joshi
+
 ## 1. Project Overview
 The **Particle System Simulator** is a high-performance, real-time application designed to model and visualize complex particle dynamics. Developed as a comprehensive Software Engineering project, it demonstrates a **Hybrid Client-Server style architecture** where the "Client" (JavaFX Frontend) handles visualization and interaction, while the "Server" (C++ Backend) executes computationally intensive physics integration.
 
@@ -86,7 +95,7 @@ This diagram illustrates the critical path of a single simulation frame, highlig
 ### Entity-Relationship (ER) Diagram
 Illustrates the data relationships and cardinality between the core entities managed by the system.
 
-![ER Diagram](./images/ER_diag.png)
+![ER Diagram](./images/er_diag.png)
 
 ### Activity Diagram (Persistence)
 Details the control flow for the "Load Preset" use case, involving file parsing, object factory creation, and system state injection.
@@ -95,7 +104,7 @@ Details the control flow for the "Load Preset" use case, involving file parsing,
 
 ---
 
-## 6. Design Patterns
+## 6. Design Patterns Utilized
 
 1.  **Facade Pattern**: The `ParticleSystem` class provides a unified interface to a set of interfaces in the subsystem (Particles, Emitters, Fields), making the subsystem easier to use for the `SimulationUI`.
 2.  **Game Loop Pattern**: Implemented via JavaFX `AnimationTimer`. It decouples the progression of game time from user input, ensuring consistent physics updates.
@@ -105,7 +114,7 @@ Details the control flow for the "Load Preset" use case, involving file parsing,
 
 ---
 
-## 7. Implementation Structure
+## 7. Project Structure
 
 ```text
 Project Root
@@ -137,7 +146,7 @@ Project Root
     ├── ParticleIntegrationTest.java             # Integration Tests (Physics/JNI)
     ├── SystemPresetTest.java                    # Persistence Tests (I/O)
     └── SimulationUITest.java                    # UI Automation Tests (TestFX)
-
+```
 ---
 
 ## 8. Testing Strategy
@@ -165,7 +174,21 @@ The project utilizes a comprehensive **Pyramid Testing Strategy**, ensuring reli
 
 ---
 
-## 9. Setup and Execution Guide
+## 9. Test Execution & Results
+
+The following images document the successful execution of the project's comprehensive test suite using the `mvn test` command.
+
+### Unit & Integration Test Results
+*(Paste screenshot of JUnit test report or console output here)*
+![Screenshot 1](./images/screenshot_1.jpeg)
+
+### UI Automation Test Results
+*(Paste screenshot of TestFX results or console output here)*
+![Screenshot 2](./images/screenshot_2.jpeg)
+
+---
+
+## 10. Setup and Execution Guide
 
 ### Prerequisites
 * **Java JDK 17** or higher.
