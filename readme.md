@@ -7,7 +7,7 @@ A high-performance, real-time application for modeling and visualizing complex p
 **Members:**
 *   IMT2023085 Vaishak Prasad Bhat 
 *   IMT2023104 Subhash Hari
-*   IMT2023507 Mithilesh
+*   IMT2023507 Mithilesh Sai Yechuri
 *   IMT2023032 Dhruv Ramesh Joshi
 
 ## 1. Project Overview
