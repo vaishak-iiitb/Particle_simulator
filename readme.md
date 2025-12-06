@@ -85,7 +85,7 @@ The "Engine" of the application. It implements a **Data-Oriented Design** approa
 ### Class Diagram
 The system structure emphasizes composition. The `ParticleSystem` acts as the central manager, aggregating heterogenous collections of `Emitters` and `FieldPoints`.
 
-![Class Diagram](./images/class_diag.jpg)
+![Class Diagram](./images/class_diag.png)
 
 ### Sequence Diagram (Update Loop)
 This diagram illustrates the critical path of a single simulation frame, highlighting the context switch between the Java UI thread and the C++ execution block.
