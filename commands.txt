@@ -1,0 +1,7 @@
+SET PATH_TO_JAVAFX_LIB=C:\javafx-sdk-21.0.5\lib
+
+javac -h src/c++ -cp . --module-path %PATH_TO_JAVAFX_LIB% --add-modules javafx.controls,javafx.fxml src/custom/Pack/*.java src/custom/Pack/Emitter/*.java src/custom/Pack/FieldPoint/*.java src/custom/Pack/Particle/Particle.java
+
+g++ -I"%JAVA_HOME%\include" -I"%JAVA_HOME%\include\win32" -shared -o ParticleSystem.dll src/c++/ParticleSystem.cpp
+
+java -cp src --module-path %PATH_TO_JAVAFX_LIB% --add-modules javafx.controls,javafx.fxml -Djava.library.path=src/c++ custom.Pack.SimulationUI

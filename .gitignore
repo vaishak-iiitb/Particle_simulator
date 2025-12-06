@@ -1,0 +1,16 @@
+# Maven
+target/
+*.log
+
+# Compiled Native Libraries (Users should compile this themselves)
+ParticleSystem.dll
+libParticleSystem.so
+
+# IDE Settings (Optional, but recommended to ignore)
+.vscode/
+.idea/
+*.iml
+
+# OS Junk
+.DS_Store
+Thumbs.db
