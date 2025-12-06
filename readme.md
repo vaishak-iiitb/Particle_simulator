@@ -3,6 +3,7 @@
 A high-performance, real-time application for modeling and visualizing complex particle dynamics using a hybrid Java (Frontend) + C++ (Backend) architecture.
 
 **Team:** MYTHilesh
+
 **Members:**
 *   IMT2023085 Vaishak Prasad Bhat 
 *   IMT2023104 Subhash Hari
