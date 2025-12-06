@@ -1,6 +1,6 @@
 # Particle System Simulator
 
-> A high-performance, real-time application for modeling and visualizing complex particle dynamics using a hybrid Java (Frontend) + C++ (Backend) architecture.
+A high-performance, real-time application for modeling and visualizing complex particle dynamics using a hybrid Java (Frontend) + C++ (Backend) architecture.
 
 **Team:** MYTHilesh
 **Members:**
@@ -190,11 +190,9 @@ The following images document the successful execution of the project's comprehe
 * **Apache Maven** (3.6+).
 * **G++ Compiler** (MinGW for Windows, GCC for Linux).
 
-### Step 1: Compile Native Library
-The C++ backend must be compiled into a shared library (`.dll` or `.so`) before the Java application can run.
-
 **Windows (PowerShell/CMD):**
 ```cmd
+### Step 1: Compile Native Library - The C++ backend must be compiled into a shared library (`.dll` or `.so`) before the Java application can run
 g++ -I"%JAVA_HOME%\include" -I"%JAVA_HOME%\include\win32" -shared -o ParticleSystem.dll src/c++/ParticleSystem.cpp
 
 ### Step 2: Run Test Suite
