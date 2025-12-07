@@ -155,10 +155,12 @@ Project Root
 The project utilizes a comprehensive **Pyramid Testing Strategy**, ensuring reliability from the lowest logic units up to the user interface.
 
 ### Unit Testing (Logic & Data)
-* **Objective**: Verify the integrity of data parsing and string manipulation without external dependencies.
-* **Scope**: `FieldPoint`, `SystemPreset`.
-* **Methodology**: Boundary value analysis on input strings to ensure the parser handles malformed data gracefully.
-* **Framework**: JUnit 5, Hamcrest assertions.
+*   **Objective**: Verify the integrity of data parsing, object serialization, and file I/O operations without invoking the graphical interface or native physics engine.
+*   **Scope**: `FieldPoint`, `SystemPreset`, `Emitter` (Parsing logic).
+*   **Methodology**:
+    *   **String Parsing Verification**: Assert that static `parse()` methods correctly convert formatted strings (e.g., `"[100.0, 200.0]/50.0/A"`) into valid object instances with correct attributes.
+    *   **Persistence Cycles**: Validate the full save/load lifecycle by serializing system states to temporary files and reconstructing them to ensure data fidelity (e.g., preserving friction coefficients and emitter coordinates).
+*   **Framework**: JUnit 5, Hamcrest Matchers, JUnit Jupiter TempDir.
 
 ### Integration Testing (Physics & JNI)
 * **Objective**: Verify the correctness of the Java-to-C++ bridge and the accuracy of physics calculations.
