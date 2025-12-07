@@ -155,12 +155,29 @@ Project Root
 The project utilizes a comprehensive **Pyramid Testing Strategy**, ensuring reliability from the lowest logic units up to the user interface.
 
 ### Unit Testing (Logic & Data)
-*   **Objective**: Verify the integrity of data parsing, object serialization, and file I/O operations without invoking the graphical interface or native physics engine.
-*   **Scope**: `FieldPoint`, `SystemPreset`, `Emitter` (Parsing logic).
-*   **Methodology**:
-    *   **String Parsing Verification**: Assert that static `parse()` methods correctly convert formatted strings (e.g., `"[100.0, 200.0]/50.0/A"`) into valid object instances with correct attributes.
-    *   **Persistence Cycles**: Validate the full save/load lifecycle by serializing system states to temporary files and reconstructing them to ensure data fidelity (e.g., preserving friction coefficients and emitter coordinates).
-*   **Framework**: JUnit 5, Hamcrest Matchers, JUnit Jupiter TempDir.
+
+The unit testing layer is designed to verify data parsing, object serialization, and file I/O operations in isolation, ensuring that the application's data handling logic functions correctly without needing to launch the graphical interface or the native physics engine.
+
+**1. FieldPoint Parsing Logic (`FieldPointTest.java`)**
+This test class focuses on the static factory methods responsible for converting raw text data into valid domain objects.
+*   **Test Case (`testFieldPointParsing`)**: The test simulates the input string format used in the application's save files (e.g., `"[100.0, 200.0]/50.0/A"`).
+*   **Execution**: It invokes the `FieldPoint.parse()` method with this string.
+*   **Assertions**: Using Hamcrest matchers, the test verifies three specific conditions to ensure the parser is robust:
+    1.  The resulting object is not null (`notNullValue()`), confirming the parser handled the format without crashing.
+    2.  The `fieldStrength` attribute is correctly extracted as a float (`50.0f`).
+    3.  The `type` attribute is correctly identified as a string (`"A"`).
+
+**2. System Persistence Lifecycle (`SystemPresetTest.java`)**
+This test class validates the full "Save and Load" lifecycle of the application, ensuring that the simulation state can be written to disk and reconstructed accurately.
+*   **Environment Setup**: It utilizes the JUnit 5 `@TempDir` annotation to automatically create a temporary directory for file operations. This ensures that test files are isolated and deleted immediately after the test completes, preventing file system clutter.
+*   **Test Case (`testSaveAndLoadPreset`)**:
+    1.  **State Creation**: A `ParticleSystem` object is instantiated and populated with specific test data: a single Emitter placed at coordinates `(50f, 50f)` and a global friction coefficient set to `0.5`.
+    2.  **Serialization (Save)**: The `SystemPreset` manager writes this state to a file named `test_preset.txt` within the temporary directory.
+    3.  **Deserialization (Load)**: A completely new, empty `ParticleSystem` is instantiated. The `SystemPreset` loader reads the temporary file and populates this new system.
+    4.  **Data Integrity Verification**: The test asserts that the reconstructed system matches the original by checking:
+        *   The emitter count is exactly 1 (`hasSize(1)`).
+        *   The loaded emitter's X-coordinate is preserved as `50f`.
+        *   The global friction setting is correctly restored to `0.5`.
 
 ### Integration Testing (Physics & JNI)
 * **Objective**: Verify the correctness of the Java-to-C++ bridge and the accuracy of physics calculations.
